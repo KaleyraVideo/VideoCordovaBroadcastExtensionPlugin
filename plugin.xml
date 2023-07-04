@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="@kaleyra/video-cordova-broadcast-extension-plugin" version="0.0.1">
+    <name>Kaleyra Video Broadcast Extension Cordova Plugin</name>
+    <author>Kaleyra S.p.a.</author>
+    <description>A Cordova plugin that adds a Broadcast Upload App Extension to your Cordova app using the native Kaleyra Video iOS SDK</description>
+    <license>GNU LESSER GENERAL PUBLIC LICENSE Version 3</license>
+
+    <keywords>cordova,ios,kaleyra,screen sharing,kaleyrasdk,extension</keywords>
+  
+    <engines>
+        <engine name="cordova" version=">=9.0.0" />
+        <engine name="cordova-ios" version=">=6.0.0" />
+        <engine name="apple-ios" version=">=12.0.0" />
+    </engines>
+
+    <dependency id="@kaleyra/video-cordova-plugin" version=">=1.0.0" />
+
+    <platform name="ios">
+        <preference name="IOS_APP_GROUP_IDENTIFIER" />
+        <preference name="IOS_EXTENSION_DISPLAY_NAME" />
+        <preference name="IOS_EXTENSION_BUNDLE_ID" />
+
+        <config-file target="**/*.entitlements" parent="com.apple.security.application-groups">
+            <array>
+                <string>$IOS_APP_GROUP_IDENTIFIER</string>
+            </array>
+        </config-file>
+        <config-file target="**/Entitlements*.plist" parent="com.apple.security.application-groups">
+            <array>
+                <string>$IOS_APP_GROUP_IDENTIFIER</string>
+            </array>
+        </config-file>
+        <config-file target="**/Entitlements*.plist" parent="com.apple.security.application-groups">
+            <array>
+                <string>$IOS_APP_GROUP_IDENTIFIER</string>
+            </array>
+        </config-file>
+
+        <hook type="before_prepare" src="hooks/CopyExtension.js" />
+        <hook type="after_prepare" src="hooks/AddTarget.js" />
+        <hook type="before_plugin_uninstall" src="hooks/RemoveTarget.js" />
+    </platform>
+
+</plugin>
