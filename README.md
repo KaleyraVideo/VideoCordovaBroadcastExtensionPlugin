@@ -1,4 +1,4 @@
-![Kaleyra Logo](doc/img/kaleyra-video.png)
+![Kaleyra Logo](https://static.bandyer.com/corporate/iOS/logo/kaleyra-logo.png)
 
 # Kaleyra Video Broadcast Extension Cordova Plugin 
 
