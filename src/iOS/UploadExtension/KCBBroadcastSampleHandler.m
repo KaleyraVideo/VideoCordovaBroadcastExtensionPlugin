@@ -1,11 +1,11 @@
 // Copyright © 2018-2023 Kaleyra S.p.a. All Rights Reserved.
 // See LICENSE for licensing information
 
-#import "BCBBroadcastSampleHandler.h"
+#import "KCBBroadcastSampleHandler.h"
 
 #import <BandyerBroadcastExtension/BandyerBroadcastExtension.h>
 
-@implementation BCBBroadcastSampleHandler
+@implementation KCBBroadcastSampleHandler
 
 - (void)broadcastStartedWithSetupInfo:(NSDictionary<NSString *,NSObject *> *)setupInfo
 {
