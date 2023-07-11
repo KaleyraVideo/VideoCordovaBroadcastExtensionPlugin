@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        id="@kaleyra/video-cordova-broadcast-extension-plugin" version="0.0.1">
+        id="@kaleyra/video-cordova-broadcast-extension-plugin" version="1.0.1">
     <name>Kaleyra Video Broadcast Extension Cordova Plugin</name>
     <author>Kaleyra S.p.a.</author>
     <description>A Cordova plugin that adds a Broadcast Upload App Extension to your Cordova app using the native Kaleyra Video iOS SDK</description>

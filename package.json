@@ -1,7 +1,7 @@
 {
   "name": "@kaleyra/video-cordova-broadcast-extension-plugin",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Cordova plugin that adds a Broadcast Upload App Extension to your Cordova app using the native Kaleyra Video iOS SDK",
   "homepage": "https://github.com/KaleyraVideo/VideoCordovaBroadcastExtensionPlugin",
   "repository": {
