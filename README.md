@@ -99,26 +99,37 @@ npm i && cordova platform rm ios --nosave && cordova platform add ios --nosave
 
 ## Kaleyra Video plugin configuration
 
-Once you have installed and configured the plugins, the last thing you need to do in order to enable the broadcast screen sharing in your app is to tell the Kaleyra Video Plugin you want to enable that feature. From Javascript, in the snippet of code where you configure KaleyraVideo you must add the `broadcastScreenSharingEnabled` flag to the `iosConfig` object with a value of `true`. Here's the gist:
+Once you have installed and configured the plugins, the last thing you need to do in order to enable the broadcast screen sharing in your app is to tell the Kaleyra Video Plugin you want to enable that feature. From Javascript, in the snippet of code where you configure KaleyraVideo you must add the `wholeDevice` flag to the `screenShare` object with a value of `true`. Here's the gist:
 
 ```javascript
 var kaleyraVideo = KaleyraVideo.configure({
-        environment: KaleyraVideo.environments.sandbox(),
-        appId: 'mAppId_xxx', // your mobile appId
-        iosConfig: {
-            callkit: {
-                enabled: true, 
-                appIconName: "logo_transparent", 
-                ringtoneSoundName: "custom_ringtone.mp3" 
-            },
-            fakeCapturerFileName: null, 
-            voipNotificationKeyPath: 'keypath_to_kaleyra_data', 
-            broadcastScreenSharingEnabled: true // Add this flag to enable the broadcast screen sharing feature 
-        }
-})
+    environment: KaleyraVideo.environments.sandbox(),
+    appID: 'mAppId_xxx',
+    region: KaleyraVideo.regions.europe(), 
+    tools: {
+        screenShare: {
+            wholeDevice: true // Add this flag to enable the broadcast screen sharing feature 
+        },
+    }
+});
 ```
 
 Beware, if the plugin is not configured properly, that flag has no effect whatsoever. 
+
+## Additiona Xcode required setup
+
+**Pay attention**, further manual configuration is required in your application's xcode project in order to use this feature.
+
+**Every time you run** in your cordova project the following commands:
+```sh
+cordova plugin add [...]
+# or
+cordova platform add [...]
+```
+**you must** open your application's **Xcode project** and go to the **"Build Settings"** section for the "UploadExtension" target, type in the search bar "**LD_RUNPATH_SEARCH_PATHS**" and change its value to "**$(inherited)**".
+This operation is also required after the first installation of this plugin.
+
+This operation is required because our plugin **@kaleyra/video-cordova-plugin**, as probably also other plugins you use, depends on the plugin "cordova-plugin-add-swift-support". This plugin runs hooks that change the value of the "LD_RUNPATH_SEARCH_PATHS" environment variable whenever you add a plugin or add a platform to your cordova project with an incorrect value.
 
 ## Variables
 
